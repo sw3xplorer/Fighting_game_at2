@@ -9,6 +9,13 @@ public class Attack
 
     public virtual void Affect(Fighter attacker, Fighter target)
     {
-        target.hp -= effect;
+        if (name == "Sephitorh" && attacker.hp < 105)
+        {
+            target.hp -= effect+20;
+        }
+        else
+        {
+            target.hp -= effect;
+        }
     }
 }
