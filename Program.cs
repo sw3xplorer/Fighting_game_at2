@@ -1,5 +1,5 @@
 ﻿// using System.Media; 
-
+string tutorial = "";
 Fighter player = new Fighter();
 Fighter enemy = new Fighter();
 
@@ -35,15 +35,29 @@ Console.WriteLine(@"
                    ");
 Console.ReadLine();
 Console.Clear();
-
 Task.Delay(1000).Wait();
+
+ while (tutorial != "yes" && tutorial != "y" && tutorial != "no" && tutorial != "n")
+            {
+                Console.WriteLine("View the tutorial? (Y/N)");
+                tutorial = Console.ReadLine().ToLower();
+                if (tutorial != "yes" && tutorial != "y" && tutorial != "no" && tutorial != "n")
+                {
+                    Console.WriteLine("\nJust write yes or no.");
+                }
+            }
+if (tutorial == "yes" || tutorial == "y")
+{
+      player.Tutorial();
+}
+Console.Clear();
 
 player.PlayerChooseName(); //kalla in klassen först
 Console.Clear();
 
-player.attacks[0].Affect(player, enemy);
 
-
+// När man skriver Fighter enemy så skapas en hel ny blank instans av klassen fighter som tar nytta av samma kod
+// men variablarna krockar inte med dem från player.
 enemy.Challangername();
 
 Task.Delay(750).Wait();
@@ -52,7 +66,7 @@ Task.Delay(1500).Wait();
 Console.WriteLine(@"________
 __|__  /
 ___/_ < 
-____/ / 
+____/ /
 /____/  
         ");
 Task.Delay(1000).Wait();
@@ -72,6 +86,25 @@ _  /
 Task.Delay(1000).Wait();
 Console.Clear();
 
+Ui.MenuLine();
+while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 
+//sätt in en input metod för att välja attacker
+{
+      Ui.HpBar(5, 10, player.maxHp, player.hp);
+      Ui.HpBar(65, 10, enemy.maxHp, enemy.hp);
+      // if (player.speed > enemy.speed)
+      // {
+      //       player.attacks[0].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
+      //       enemy.attacks[0].Affect(player,enemy);
+      // }
+
+      // else if (player.speed < enemy.speed)
+      // {
+      //       enemy.attacks[0].Affect(player, enemy);
+      //       player.attacks[0].Affect(player, enemy);
+      // }
+
+}
 
 Console.ReadLine(); //för att se till om allting funkar

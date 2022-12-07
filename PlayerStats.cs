@@ -67,7 +67,7 @@ public class PlayerStats
             Console.WriteLine("\nGigaflare: 200 DMG");
             Console.WriteLine("\nPASSIVE: One Winged form");
             Task.Delay(750).Wait();
-            Console.WriteLine("When Sephiroth's HP drops below 30%, he gains a flat 10 DMG reduction, higher speed and 15 extra DMG");
+            Console.WriteLine("When Sephiroth's HP drops below 30%, he gains higher speed and 15 extra DMG");
             Task.Delay(1000).Wait();
         }
 
