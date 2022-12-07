@@ -21,7 +21,7 @@ public class Fighter
     public bool doDot = false;
     public Fighter DotAttacker;
     public int dotTimesLeft;
-    public int DotDamage;
+    public int dotDamage;
 
     // Multi hit variblar
     public Fighter MultiAttacker;
@@ -33,12 +33,23 @@ public class Fighter
     public Fighter CritUpAttacker;
     public int critBonus;
 
+    // Dmg block 
+    public bool blockDmg = false;
+
 
     public List<Attack> attacks = new();
 
     public void UpdateDot()
     {
-
+       if (doDot == true)
+       {
+            dotTimesLeft -= 1;
+            hp -= dotDamage;
+            if (dotTimesLeft == 0)
+            {
+                doDot = false;
+            }
+       }
     }
     public void Tutorial()
     {

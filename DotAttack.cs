@@ -4,14 +4,14 @@ public class DotAttack : Attack
 
     public override void Affect(Fighter attacker, Fighter target)
     {
-        target.DotAttacker = attacker;
-        target.dotTimesLeft = dotDuration;
-        target.DotDamage = effect;
+        attacker.DotAttacker = attacker;
+        attacker.dotTimesLeft = dotDuration;
+        attacker.dotDamage = effect;
 
         if (name == "Bowser")
         {
             attackRoll = generator.Next(100);
-            if ((attackRoll+1) > 30)
+            if ((attackRoll+1) > 70)
             {
                 target.hp -= 10;
                 target.doDot = true;
@@ -22,15 +22,30 @@ public class DotAttack : Attack
             }
         }
 
-
-        attackRoll = generator.Next(100);
-        if ((attackRoll+1) > 30)
+        if (name == "Sephitorh" && attacker.hp < 105)
         {
-            target.doDot = true;
+            attacker.dotDamage = effect + 20;
+            attackRoll = generator.Next(100);
+            if ((attackRoll+1) > 70)
+            {
+                target.doDot = true;
+            }
+            else 
+            {
+                target.doDot = false;
+            }
         }
-        else
+        else 
         {
-            target.doDot = false;
+            attackRoll = generator.Next(100);
+            if ((attackRoll+1) > 70)
+            {
+                target.doDot = true;
+            }
+            else
+            {
+                target.doDot = false;
+            }
         }
 
 

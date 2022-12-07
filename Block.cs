@@ -7,11 +7,11 @@ public class Block : Attack
         int succsess = generator.Next(101);
         if (succsess > 60)
         {
-            blockDmg = true;
+            attacker.blockDmg = true;
         }
         else
         {
-            blockDmg = false;
+            attacker.blockDmg = false;
         }
     }
 }

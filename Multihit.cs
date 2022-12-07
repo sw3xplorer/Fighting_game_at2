@@ -10,18 +10,40 @@ public class Multihit : Attack
 
         for (int i = 0; i < amount; i++)
         {
-            attackRoll = generator.Next(100);
-            if ((attackRoll+1) > 95)
+            if (name == "Sephitorh" && attacker.hp < 105)
             {
-                target.hp -= effect*2;
+                attackRoll = generator.Next(100);
+
+                if ((attackRoll + 1) > 95)
+                {
+                    target.hp -= (effect + 20)*2;
+                }
+                else if ((attackRoll+1) > 30)
+                {
+                    target.hp -= effect+20;
+                }
+                else 
+                {
+                    target.hp -= 0;
+                }
             }
-            else if ((attackRoll+1) > 30 )
+
+
+            else 
             {
-                target.hp -= effect;
-            }
-            else
-            {
-                target.hp -= 0;
+                attackRoll = generator.Next(100);
+                if ((attackRoll+1) > 95)
+                {
+                    target.hp -= effect*2;
+                }
+                else if ((attackRoll+1) > 30 )
+                {
+                    target.hp -= effect;
+                }
+                else
+                {
+                    target.hp -= 0;
+                }
             }
         }
     }

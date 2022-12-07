@@ -93,18 +93,23 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 {
       Ui.HpBar(5, 10, player.maxHp, player.hp);
       Ui.HpBar(65, 10, enemy.maxHp, enemy.hp);
+
+      // lägg till updateDot för spelare och fiende som första saken i funktionen.
+      
       // if (player.speed > enemy.speed)
       // {
+      //       enemy.UpdateDot();
       //       player.attacks[0].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
       //       enemy.attacks[0].Affect(player,enemy);
       // }
 
       // else if (player.speed < enemy.speed)
       // {
+            // player.UpdateDot();
       //       enemy.attacks[0].Affect(player, enemy);
       //       player.attacks[0].Affect(player, enemy);
       // }
-
+      
 }
 
 Console.ReadLine(); //för att se till om allting funkar

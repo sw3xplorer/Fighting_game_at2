@@ -11,10 +11,10 @@ public class Attack
 
     public virtual void Affect(Fighter attacker, Fighter target)
     {
-        if (target.name == "Tuba Knight" && blockDmg == true)
+        if (target.name == "Tuba Knight" && target.blockDmg == true)
         {
             target.hp -= 0;
-            blockDmg = false;
+            target.blockDmg = false;    
         }
 
         if (name == "Sans")
@@ -36,8 +36,20 @@ public class Attack
 
         if (name == "Sephitorh" && attacker.hp < 105)
         {
+            attackRoll = generator.Next(100);
 
-            target.hp -= effect+20;
+            if ((attackRoll + 1) > 95)
+            {
+                target.hp -= (effect + 20)*2;
+            }
+            else if ((attackRoll+1) > 10)
+            {
+                target.hp -= effect+20;
+            }
+            else 
+            {
+                target.hp -= 0;
+            }
         }
 
         if (name == "Tuba Knight")
