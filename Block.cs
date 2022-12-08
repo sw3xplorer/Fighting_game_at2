@@ -4,14 +4,17 @@ public class Block : Attack
 {
     public override void Affect(Fighter attacker, Fighter target)
     {
-        int succsess = generator.Next(101);
-        if (succsess > 60)
+        if (!attacker.stun)
         {
-            attacker.blockDmg = true;
-        }
-        else
-        {
-            attacker.blockDmg = false;
+            int succsess = generator.Next(101);
+            if (succsess > 60)
+            {
+                attacker.blockDmg = true;
+            }
+            else
+            {
+                attacker.blockDmg = false;
+            }
         }
     }
 }

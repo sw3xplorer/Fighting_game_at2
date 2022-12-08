@@ -2,6 +2,9 @@ public class CritUp : Attack
 {
     public override void Affect(Fighter attacker, Fighter target)
     {
-        attacker.critBonus += effect;
+        if (!attacker.stun)
+        {
+            attacker.critBonus += effect;
+        }
     }
 }

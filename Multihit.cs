@@ -4,45 +4,48 @@ public class Multihit : Attack
     public override void Affect(Fighter attacker, Fighter target)
     {
 
-        target.MultiAttacker = attacker;
-        target.Hits = amount;
-        target.MultiDamage = effect;
+        attacker.MultiAttacker = attacker;
+        attacker.Hits = amount;
+        attacker.MultiDamage = effect;
 
-        for (int i = 0; i < amount; i++)
+        if (!attacker.stun)
         {
-            if (name == "Sephitorh" && attacker.hp < 105)
+            for (int i = 0; i < amount; i++)
             {
-                attackRoll = generator.Next(100);
+                if (name == "Sephitorh" && attacker.hp < 105)
+                {
+                    attackRoll = generator.Next(100);
 
-                if ((attackRoll + 1) > 95)
-                {
-                    target.hp -= (effect + 20)*2;
+                    if ((attackRoll + 1) > 95)
+                    {
+                        target.hp -= (effect + 20)*2;
+                    }
+                    else if ((attackRoll+1) > 30)
+                    {
+                        target.hp -= effect+20;
+                    }
+                    else 
+                    {
+                        target.hp -= 0;
+                    }
                 }
-                else if ((attackRoll+1) > 30)
-                {
-                    target.hp -= effect+20;
-                }
+
+
                 else 
                 {
-                    target.hp -= 0;
-                }
-            }
-
-
-            else 
-            {
-                attackRoll = generator.Next(100);
-                if ((attackRoll+1) > 95)
-                {
-                    target.hp -= effect*2;
-                }
-                else if ((attackRoll+1) > 30 )
-                {
-                    target.hp -= effect;
-                }
-                else
-                {
-                    target.hp -= 0;
+                    attackRoll = generator.Next(100);
+                    if ((attackRoll+1) > 95)
+                    {
+                        target.hp -= effect*2;
+                    }
+                    else if ((attackRoll+1) > 30 )
+                    {
+                        target.hp -= effect;
+                    }
+                    else
+                    {
+                        target.hp -= 0;
+                    }
                 }
             }
         }

@@ -2,42 +2,66 @@ public class Special :Attack
 {
     public override void Affect(Fighter attacker, Fighter target)
     {
-         if (name == "Sephitorh" && attacker.hp < 105)
+        if (!attacker.stun)
         {
-            attackRoll = generator.Next(100);
+            if (name == "Sephitorh" && attacker.hp < 105)
+            {
+                attackRoll = generator.Next(100);
 
-            if ((attackRoll + 1) == 100)
-            {
-                target.hp -= (effect + 20)*2;
+                if ((attackRoll + 1) == 100)
+                {
+                    target.hp -= (effect + 20)*2;
+                }
+                else if ((attackRoll+1) > 95)
+                {
+                    target.hp -= effect+20;
+                }
+                else 
+                {
+                    target.hp -= 0;
+                }
             }
-            else if ((attackRoll+1) > 95)
+
+            if (name == "Bowser")
             {
-                target.hp -= effect+20;
+                attackRoll = generator.Next(100);
+
+                if ((attackRoll + 1) == 100)
+                {
+                    target.hp -= effect*2;
+                    target.stun = true;
+                }
+                else if ((attackRoll + 1) > 95)
+                {
+                    target.hp -= effect;
+                    target.stun = true;
+                }
+                else
+                {
+                    target.hp -= 0;
+                }
             }
+
             else 
             {
-                target.hp -= 0;
-            }
-        }
+                attackRoll = generator.Next(100);
 
-        else 
-        {
-            attackRoll = generator.Next(100);
+                if ((attackRoll + 1 ) == 100)
+                {
+                    target.hp -= effect*2;
+                }
 
-            if ((attackRoll + 1 ) == 100)
-            {
-                target.hp -= effect*2;
+                else if ((attackRoll + 1) > 95)
+                {
+                    target.hp -= effect;
+                }
+
+                else 
+                {
+                    target.hp -= 0;
+                }
             }
 
-            else if ((attackRoll + 1) > 95)
-            {
-                target.hp -= effect;
-            }
-
-            else 
-            {
-                target.hp -= 0;
-            }
         }
     }
 }

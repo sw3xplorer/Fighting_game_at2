@@ -10,7 +10,7 @@ public class Ui
         for (var i = 0; i < Console.WindowWidth * 0.25; i++) // i är längden på hp bar, den ska fortsätta expandera tills den är 45 pixlar
         // när CurrentHP är mindre än i (45) så kommer delen som saknas färgas röd. 
         {
-            if (hp > i)
+            if (hp/maxHp > i/(Console.WindowWidth*0.25))
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
             }
@@ -27,7 +27,7 @@ public class Ui
 
     public static void MenuLine()
     {
-        Console.SetCursorPosition(0, 39);
+        Console.SetCursorPosition(0, (int)(Console.LargestWindowHeight*0.9));
         for (var i = 0; i < Console.WindowWidth; i++)
         {
             Console.Write("-");

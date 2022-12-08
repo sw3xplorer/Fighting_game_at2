@@ -2,14 +2,16 @@ public class Heal : Attack
 {
     public override void Affect(Fighter attacker, Fighter target)
     {
-
-        if ((attacker.hp+effect) > attacker.maxHp)
+        if (!attacker.stun)
         {
-            attacker.hp += (attacker.maxHp-attacker.hp);
-        }
-        else 
-        {
-            attacker.hp += effect;
+            if ((attacker.hp+effect) > attacker.maxHp)
+            {
+                attacker.hp += (attacker.maxHp-attacker.hp);
+            }
+            else 
+            {
+                attacker.hp += effect;
+            }
         }
     }
 }

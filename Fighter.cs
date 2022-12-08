@@ -36,6 +36,10 @@ public class Fighter
     // Dmg block 
     public bool blockDmg = false;
 
+    // Stun status
+
+    public bool stun = false;
+
 
     public List<Attack> attacks = new();
 
@@ -209,7 +213,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Attack() { name = "Claw", effect = 40 });
             attacks.Add(new DotAttack() { name = "Fire Breath", effect = 30, dotDuration = 3 });
             attacks.Add(new Multihit() { name = "Ravage", effect = 20, amount = 5 });
-            attacks.Add(new Attack() { name = "Ground Pound", effect = 125 }); //och stun för 2 turns
+            attacks.Add(new Attack() { name = "Ground Pound", effect = 125, stunDuration = 2 }); //och stun för 2 turns
             //läggs till om attacken träffar
         }
         else

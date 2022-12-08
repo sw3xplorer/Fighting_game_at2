@@ -7,44 +7,46 @@ public class DotAttack : Attack
         attacker.DotAttacker = attacker;
         attacker.dotTimesLeft = dotDuration;
         attacker.dotDamage = effect;
-
-        if (name == "Bowser")
+        if (!attacker.stun)
         {
-            attackRoll = generator.Next(100);
-            if ((attackRoll+1) > 70)
+            if (name == "Bowser")
             {
-                target.hp -= 10;
-                target.doDot = true;
+                attackRoll = generator.Next(100);
+                if ((attackRoll+1) > 70)
+                {
+                    target.hp -= 10;
+                    target.doDot = true;
+                }
+                else
+                {
+                    target.doDot = false;
+                }
             }
-            else
-            {
-                target.doDot = false;
-            }
-        }
 
-        if (name == "Sephitorh" && attacker.hp < 105)
-        {
-            attacker.dotDamage = effect + 20;
-            attackRoll = generator.Next(100);
-            if ((attackRoll+1) > 70)
+            if (name == "Sephitorh" && attacker.hp < 105)
             {
-                target.doDot = true;
+                attacker.dotDamage = effect + 20;
+                attackRoll = generator.Next(100);
+                if ((attackRoll+1) > 70)
+                {
+                    target.doDot = true;
+                }
+                else 
+                {
+                    target.doDot = false;
+                }
             }
             else 
             {
-                target.doDot = false;
-            }
-        }
-        else 
-        {
-            attackRoll = generator.Next(100);
-            if ((attackRoll+1) > 70)
-            {
-                target.doDot = true;
-            }
-            else
-            {
-                target.doDot = false;
+                attackRoll = generator.Next(100);
+                if ((attackRoll+1) > 70)
+                {
+                    target.doDot = true;
+                }
+                else
+                {
+                    target.doDot = false;
+                }
             }
         }
 
