@@ -3,6 +3,8 @@ string tutorial = "";
 Fighter player = new Fighter();
 Fighter enemy = new Fighter();
 
+
+
 Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
 Console.WriteLine(Console.LargestWindowHeight);
@@ -13,7 +15,8 @@ Console.WriteLine("NOTE: All characters belong to their respective copyright own
 Console.Write("Press enter to start: ");
 Console.ReadLine();
 Console.Clear();
-Random Generator = new Random();
+Random generator = new Random();
+int enemyAttack; 
 
 Console.WriteLine(@"_____________            _______                           
 ___  __/__  /______      ___    |________________________ _
@@ -93,6 +96,7 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 {
       Ui.HpBar(5, 10, player.maxHp, player.hp);
       Ui.HpBar(65, 10, enemy.maxHp, enemy.hp);
+      Ui.AttackLabel();
       
 
       // lägg till updateDot för spelare och fiende som första saken i funktionen.
@@ -100,17 +104,21 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
       if (player.speed > enemy.speed)
       {
             enemy.UpdateDot();
-            player.attacks[0].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
+            player.Control();
+            player.attacks[player.choice].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
             player.UpdateDot();
-            enemy.attacks[0].Affect(player,enemy);
+            enemyAttack = generator.Next(0,4);
+            enemy.attacks[enemyAttack].Affect(enemy,player);
       }
 
       else if (player.speed < enemy.speed)
       {
             player.UpdateDot();
-            enemy.attacks[0].Affect(player, enemy);
+            enemyAttack = generator.Next(0,4);
+            enemy.attacks[enemyAttack].Affect(enemy, player);
             enemy.UpdateDot();
-            player.attacks[0].Affect(player, enemy);
+            player.Control();
+            player.attacks[player.choice].Affect(player, enemy);
       }
 
       Console.ReadLine(); // kontroll cr

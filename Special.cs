@@ -22,7 +22,7 @@ public class Special :Attack
                 }
             }
 
-            if (name == "Bowser")
+            else if (name == "Bowser")
             {
                 attackRoll = generator.Next(100);
 

@@ -20,7 +20,7 @@ public class Attack
                 target.blockDmg = false;    
             }
 
-            if (name == "Sans")
+            if (attacker.name == "Sans")
             {
                 attackRoll = generator.Next(100);
                 if ((attackRoll + 1) > 85)
@@ -37,7 +37,7 @@ public class Attack
                 }
             }
 
-            if (name == "Sephitorh" && attacker.hp < 105)
+            else if (attacker.name == "Sephitorh" && attacker.hp < 105)
             {
                 attackRoll = generator.Next(100);
 
@@ -55,7 +55,7 @@ public class Attack
                 }
             }
 
-            if (name == "Tuba Knight")
+            else if (attacker.name == "Tuba Knight")
             {
                 attackRoll = generator.Next(100);
 

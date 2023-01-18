@@ -12,10 +12,12 @@ public class Fighter
     public int opponent;
     public int hp;
     public int maxHp;
-
+    public int choice = 0;
     public int speed;
     public string confirmPlayer;
-    public int page;
+    public bool confirmAttack;
+    public static int moves;
+    public static int page;
 
     // DOT damage variablar
     public bool doDot = false;
@@ -144,6 +146,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             if (confirmPlayer == "y" || confirmPlayer == "yes")
             {
                 name = characters[page - 1];
+                moves = page-1;
                 SpeedHp();
                 AttackNameStats();
                 characters.Remove(name); //tar bort namnet som mathcar string name
@@ -167,7 +170,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
         Console.WriteLine("Selecting opponent:");
         Task.Delay(2000).Wait();
         page = generator.Next(characters.Count); //.count, väljer mellan hur många objekt i listan det finns kvar
-                                                 // eftersom vi tog bort karaktären vi valde ur listan kommer vi aldrig få samma motståndare
+        
         Console.Write("Your opponent is: ");
         Task.Delay(1000).Wait();
         Console.WriteLine(characters[page]);
@@ -195,7 +198,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Attack() { name = "Impale", effect = 35 });
             attacks.Add(new DotAttack() { name = "Shadow Flare", effect = 15, dotDuration = 5 });
             attacks.Add(new Multihit() { name = "Octaslash", effect = 10, amount = 8 });
-            attacks.Add(new Attack() { name = "Gigaflare", effect = 200 });
+            attacks.Add(new Special() { name = "Gigaflare", effect = 200 });
         }
 
         else if (name == "Sans")
@@ -204,7 +207,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Attack() { name = "Slam", effect = 25 });
             attacks.Add(new DotAttack() { name = "Decay", effect = 20, dotDuration = 5 });
             attacks.Add(new Multihit() { name = "Bone Barrage", effect = 10, amount = 10 });
-            attacks.Add(new Attack() { name = "Mega Blast", effect = 100 });
+            attacks.Add(new Special() { name = "Mega Blast", effect = 100 });
         }
 
         else if (name == "Bowser")
@@ -213,7 +216,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Attack() { name = "Claw", effect = 40 });
             attacks.Add(new DotAttack() { name = "Fire Breath", effect = 30, dotDuration = 3 });
             attacks.Add(new Multihit() { name = "Ravage", effect = 20, amount = 5 });
-            attacks.Add(new Attack() { name = "Ground Pound", effect = 125, stunDuration = 2 }); //och stun för 2 turns
+            attacks.Add(new Special() { name = "Ground Pound", effect = 125, stunDuration = 2 }); //och stun för 2 turns
             //läggs till om attacken träffar
         }
         else
@@ -222,7 +225,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Attack() { name = "Flute Slash", effect = 30 });
             attacks.Add(new CritUp() { name = "Chord", effect = 2 });
             attacks.Add(new Block() { name = "Block", effect = 0 });
-            attacks.Add(new Attack() { name = "Sound Blast", effect = 100 });
+            attacks.Add(new Special() { name = "Sound Blast", effect = 100 });
         }
 
     }
@@ -243,10 +246,36 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
         speed = Speed[page];
     }
 
+    public void Control()
+    {
+        while (!confirmAttack)
+        {
+            if (choice >= 0 && choice <= 3)
+            {
+                Console.SetCursorPosition(choice * (int)(Console.WindowWidth * 0.25), 41);
+                Console.Write(">");
+
+            }
+            var key = Console.ReadKey(true);   //readkey är som readline men reagerar direkt när man trycker istället för bara enter
+            if (key.Key == ConsoleKey.RightArrow && choice < 3)  //true gör så att man inte ritar det man skriver
+            {
+                choice++;
+            }
+            else if (key.Key == ConsoleKey.LeftArrow && choice > 0)
+            {
+                choice--;
+            }
+            else if (key.Key == ConsoleKey.Enter)
+            {
+                confirmAttack = true;
+            }   
+        }
+    }
 
     public Fighter()
     {
 
     }
+    
 
 }
