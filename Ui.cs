@@ -8,7 +8,7 @@ public class Ui
         Console.SetCursorPosition((int)x, (int)y);
         Console.Write("<");
         for (var i = 0; i < Console.WindowWidth * 0.25; i++) // i är längden på hp bar, den ska fortsätta expandera tills den är 45 pixlar
-        // när CurrentHP är mindre än i (45) så kommer delen som saknas färgas röd. 
+        // när CurrentHP är mindre än i så kommer delen som saknas färgas röd. 
         {
             if (hp / (float)maxHp > i / (Console.WindowWidth * 0.25))
             {
@@ -21,7 +21,7 @@ public class Ui
             Console.Write("█");
         }
         Console.ResetColor();
-        Console.SetCursorPosition((int)x + 45, (int)y);
+        Console.SetCursorPosition((int)x + (int)(Console.WindowWidth*0.25)+2, (int)y);
         Console.WriteLine($">{hp}/{maxHp}  ");
     }
 
@@ -43,13 +43,13 @@ public class Ui
         string[] Attacks5 = { "Flute Slash", "Block", "Chord", "Sound Blast" };
         Array[] Attacks = { Attacks1, Attacks2, Attacks3, Attacks4, Attacks5 };
         string[] AttackName = (string[])Attacks[Fighter.moves];
-        Console.SetCursorPosition(1, 41);
+        Console.SetCursorPosition(1, (int)(Console.LargestWindowHeight*0.95));
         Console.Write($"{AttackName[0]}");
-        Console.SetCursorPosition((int)(Console.WindowWidth * 0.25) + 1, 41);
+        Console.SetCursorPosition((int)(Console.WindowWidth * 0.25) + 1, (int)(Console.LargestWindowHeight*0.95));
         Console.Write($"{AttackName[1]}");
-        Console.SetCursorPosition((int)(Console.WindowWidth * 0.5) + 1, 41);
+        Console.SetCursorPosition((int)(Console.WindowWidth * 0.5) + 1, (int)(Console.LargestWindowHeight*0.95));
         Console.Write($"{AttackName[2]}");
-        Console.SetCursorPosition((int)(Console.WindowWidth * 0.75) + 1, 41);
+        Console.SetCursorPosition((int)(Console.WindowWidth * 0.75) + 1, (int)(Console.LargestWindowHeight*0.95));
         Console.Write($"{AttackName[3]}");
 
     }
