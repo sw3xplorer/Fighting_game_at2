@@ -23,11 +23,11 @@ public class Attack
             else if (attacker.name == "Sans")
             {
                 attackRoll = generator.Next(100);
-                if ((attackRoll + 1) > 85)
+                if ((attackRoll + 1) >= 85)
                 {
                     target.hp -= effect*2;
                 }   
-                else if ((attackRoll+1) > 10)
+                else if ((attackRoll+1) >= 10)
                 {
                     target.hp -= effect;
                 }
@@ -41,11 +41,11 @@ public class Attack
             {
                 attackRoll = generator.Next(100);
 
-                if ((attackRoll + 1) > 95)
+                if ((attackRoll + 1) >= 95)
                 {
                     target.hp -= (effect + 20)*2;
                 }
-                else if ((attackRoll+1) > 10)
+                else if ((attackRoll+1) >= 10)
                 {
                     target.hp -= effect+20;
                 }
@@ -59,11 +59,11 @@ public class Attack
             {
                 attackRoll = generator.Next(100);
 
-                if ((attackRoll + 1) > (95-attacker.critBonus))
+                if ((attackRoll + 1) >= (95-attacker.critBonus))
                 {
                     target.hp -= effect*2;
                 }
-                else if ((attackRoll+1) > 10)
+                else if ((attackRoll+1) >= 10)
                 {
                     target.hp -= effect;
                 }
@@ -77,11 +77,11 @@ public class Attack
             {
                 attackRoll = generator.Next(100);
 
-                if ((attackRoll + 1) > 95)
+                if ((attackRoll + 1) >= 95)
                 {
                     target.hp -= effect*2;
                 }
-                else if ((attackRoll+1) > 10)
+                else if ((attackRoll+1) >= 10)
                 {
                     target.hp -= effect;
                 }

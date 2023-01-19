@@ -16,11 +16,11 @@ public class Multihit : Attack
                 {
                     attackRoll = generator.Next(100);
 
-                    if ((attackRoll + 1) > 95)
+                    if ((attackRoll + 1) >= 95)
                     {
                         target.hp -= (effect + 20)*2;
                     }
-                    else if ((attackRoll+1) > 30)
+                    else if ((attackRoll+1) >= 30)
                     {
                         target.hp -= effect+20;
                     }
@@ -34,11 +34,11 @@ public class Multihit : Attack
                 else 
                 {
                     attackRoll = generator.Next(100);
-                    if ((attackRoll+1) > 95)
+                    if ((attackRoll+1) >= 95)
                     {
                         target.hp -= effect*2;
                     }
-                    else if ((attackRoll+1) > 30 )
+                    else if ((attackRoll+1) >= 30 )
                     {
                         target.hp -= effect;
                     }

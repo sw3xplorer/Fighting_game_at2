@@ -108,14 +108,14 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
             player.attacks[player.choice].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
             player.confirmAttack = false;
             player.UpdateDot();
-            enemyAttack = generator.Next(0,4);
+            enemyAttack = generator.Next(4);
             enemy.attacks[enemyAttack].Affect(enemy,player);
       }
 
       else if (player.speed < enemy.speed)
       {
             player.UpdateDot();
-            enemyAttack = generator.Next(0,4);
+            enemyAttack = generator.Next(4);
             enemy.attacks[enemyAttack].Affect(enemy, player);
             enemy.UpdateDot();
             player.Control();
@@ -134,3 +134,4 @@ Console.Write("Test of text");
 Console.WriteLine(player.hp);
 Console.WriteLine(enemy.hp);
 Console.ReadLine(); //för att se till om allting funkar
+

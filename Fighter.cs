@@ -45,18 +45,6 @@ public class Fighter
 
     public List<Attack> attacks = new();
 
-    public void UpdateDot()
-    {
-       if (doDot == true)
-       {
-            dotTimesLeft -= 1;
-            hp -= dotDamage;
-            if (dotTimesLeft == 0)
-            {
-                doDot = false;
-            }
-       }
-    }
     public void Tutorial()
     {
         Console.Clear();
@@ -254,16 +242,19 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             {
                 Console.SetCursorPosition(choice * (int)(Console.WindowWidth * 0.25), 41);
                 Console.Write(">");
-
             }
             var key = Console.ReadKey(true);   //readkey är som readline men reagerar direkt när man trycker istället för bara enter
             if (key.Key == ConsoleKey.RightArrow && choice < 3)  //true gör så att man inte ritar det man skriver
             {
                 choice++;
+                Console.SetCursorPosition((choice-1) * (int)(Console.WindowWidth * 0.25), 41);
+                Console.Write(" ");
             }
             else if (key.Key == ConsoleKey.LeftArrow && choice > 0)
             {
                 choice--;
+                Console.SetCursorPosition((choice+1) * (int)(Console.WindowWidth * 0.25), 41);
+                Console.Write(" ");
             }
             else if (key.Key == ConsoleKey.Enter)
             {
@@ -271,7 +262,20 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             }   
         }
     }
-
+    public void UpdateDot() // funkar rätt men dotDamage och dotTimesLeft är 0
+    {
+       if (doDot)
+       {
+            dotTimesLeft -= 1;
+            hp -= dotDamage;
+            if (dotTimesLeft == 0)
+            {
+                doDot = false;
+                
+            }
+       }
+    }
+    
     public Fighter()
     {
 

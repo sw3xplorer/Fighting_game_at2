@@ -17,7 +17,7 @@ public class Special :Attack
                 {
                     target.hp -= (effect + 20)*2;
                 }
-                else if ((attackRoll+1) > 95)
+                else if ((attackRoll+1) >= 95)
                 {
                     target.hp -= effect+20;
                 }
@@ -36,7 +36,7 @@ public class Special :Attack
                     target.hp -= effect*2;
                     target.stun = true;
                 }
-                else if ((attackRoll + 1) > 95)
+                else if ((attackRoll + 1) >= 95)
                 {
                     target.hp -= effect;
                     target.stun = true;
@@ -56,7 +56,7 @@ public class Special :Attack
                     target.hp -= effect*2;
                 }
 
-                else if ((attackRoll + 1) > 95)
+                else if ((attackRoll + 1) >= 95)
                 {
                     target.hp -= effect;
                 }
