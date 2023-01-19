@@ -4,7 +4,6 @@ Fighter player = new Fighter();
 Fighter enemy = new Fighter();
 
 
-
 Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 
 Console.WriteLine(Console.LargestWindowHeight);
@@ -91,6 +90,7 @@ Console.Clear();
 
 Ui.MenuLine();
 Ui.AttackLabel();
+CombatArtPlayer.CombatArt(moves);
 while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 
 //sätt in en input metod för att välja attacker

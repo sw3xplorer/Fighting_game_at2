@@ -16,7 +16,7 @@ public class Fighter
     public int speed;
     public string confirmPlayer;
     public bool confirmAttack;
-    public static int moves;
+    public int moves;
     public static int page;
 
     // DOT damage variablar
@@ -240,20 +240,20 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
         {
             if (choice >= 0 && choice <= 3)
             {
-                Console.SetCursorPosition(choice * (int)(Console.WindowWidth * 0.25), 41);
+                Console.SetCursorPosition(choice * (int)(Console.WindowWidth * 0.25), (int)(Console.LargestWindowHeight*0.95));
                 Console.Write(">");
             }
             var key = Console.ReadKey(true);   //readkey är som readline men reagerar direkt när man trycker istället för bara enter
             if (key.Key == ConsoleKey.RightArrow && choice < 3)  //true gör så att man inte ritar det man skriver
             {
                 choice++;
-                Console.SetCursorPosition((choice-1) * (int)(Console.WindowWidth * 0.25), 41);
+                Console.SetCursorPosition((choice-1) * (int)(Console.WindowWidth * 0.25), (int)(Console.LargestWindowHeight*0.95));
                 Console.Write(" ");
             }
             else if (key.Key == ConsoleKey.LeftArrow && choice > 0)
             {
                 choice--;
-                Console.SetCursorPosition((choice+1) * (int)(Console.WindowWidth * 0.25), 41);
+                Console.SetCursorPosition((choice+1) * (int)(Console.WindowWidth * 0.25), (int)(Console.LargestWindowHeight*0.95));
                 Console.Write(" ");
             }
             else if (key.Key == ConsoleKey.Enter)

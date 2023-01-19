@@ -21,7 +21,7 @@ public class Ui
             Console.Write("█");
         }
         Console.ResetColor();
-        Console.SetCursorPosition((int)x + (int)(Console.WindowWidth*0.25)+2, (int)y);
+        Console.SetCursorPosition((int)x + (int)(Console.WindowWidth*0.25)+1, (int)y);
         Console.WriteLine($">{hp}/{maxHp}  ");
     }
 
