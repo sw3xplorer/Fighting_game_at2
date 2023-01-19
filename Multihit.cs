@@ -8,7 +8,7 @@ public class Multihit : Attack
         attacker.Hits = amount;
         attacker.MultiDamage = effect;
 
-        if (!attacker.stun)
+        if (!attacker.stun && !target.blockDmg)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -48,6 +48,10 @@ public class Multihit : Attack
                     }
                 }
             }
+        }
+        else 
+        {
+            target.blockDmg = false;
         }
     }
 }

@@ -14,13 +14,13 @@ public class Attack
     {
         if (!attacker.stun)
         {
-            if (target.name == "Tuba Knight" && target.blockDmg == true)
+            if (target.blockDmg)
             {
                 target.hp -= 0;
                 target.blockDmg = false;    
             }
 
-            if (attacker.name == "Sans")
+            else if (attacker.name == "Sans")
             {
                 attackRoll = generator.Next(100);
                 if ((attackRoll + 1) > 85)

@@ -90,13 +90,13 @@ Task.Delay(1000).Wait();
 Console.Clear();
 
 Ui.MenuLine();
+Ui.AttackLabel();
 while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 
 //sätt in en input metod för att välja attacker
 {
       Ui.HpBar(5, 10, player.maxHp, player.hp);
       Ui.HpBar(65, 10, enemy.maxHp, enemy.hp);
-      Ui.AttackLabel();
       
 
       // lägg till updateDot för spelare och fiende som första saken i funktionen.
@@ -106,6 +106,7 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
             enemy.UpdateDot();
             player.Control();
             player.attacks[player.choice].Affect(player,enemy); //Affect är en funktion som används som grunden till attackerna
+            player.confirmAttack = false;
             player.UpdateDot();
             enemyAttack = generator.Next(0,4);
             enemy.attacks[enemyAttack].Affect(enemy,player);
@@ -119,10 +120,17 @@ while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
             enemy.UpdateDot();
             player.Control();
             player.attacks[player.choice].Affect(player, enemy);
+            player.confirmAttack = false;
       }
 
       Console.ReadLine(); // kontroll cr
            
 }
 
+Ui.HpBar(5, 10, player.maxHp, player.hp);
+Ui.HpBar(65, 10, enemy.maxHp, enemy.hp);
+Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)Console.LargestWindowHeight/2);
+Console.Write("Test of text");
+Console.WriteLine(player.hp);
+Console.WriteLine(enemy.hp);
 Console.ReadLine(); //för att se till om allting funkar

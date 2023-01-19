@@ -6,8 +6,8 @@ public class Block : Attack
     {
         if (!attacker.stun)
         {
-            int succsess = generator.Next(101);
-            if (succsess > 60)
+            int succsess = generator.Next(100);
+            if (succsess + 1 > 60)
             {
                 attacker.blockDmg = true;
             }

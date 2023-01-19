@@ -4,6 +4,11 @@ public class Special :Attack
     {
         if (!attacker.stun)
         {
+            if (target.blockDmg)
+            {
+                target.hp -= 0;
+                target.blockDmg = false;
+            }
             if (name == "Sephitorh" && attacker.hp < 105)
             {
                 attackRoll = generator.Next(100);

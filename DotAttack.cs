@@ -23,7 +23,7 @@ public class DotAttack : Attack
                 }
             }
 
-            if (name == "Sephitorh" && attacker.hp < 105)
+            else if (name == "Sephitorh" && attacker.hp < 105)
             {
                 attacker.dotDamage = effect + 20;
                 attackRoll = generator.Next(100);

@@ -223,8 +223,8 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
         {
             attacks.Clear();
             attacks.Add(new Attack() { name = "Flute Slash", effect = 30 });
-            attacks.Add(new CritUp() { name = "Chord", effect = 2 });
             attacks.Add(new Block() { name = "Block", effect = 0 });
+            attacks.Add(new CritUp() { name = "Chord", effect = 2 });
             attacks.Add(new Special() { name = "Sound Blast", effect = 100 });
         }
 
