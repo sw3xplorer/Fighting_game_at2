@@ -2,12 +2,12 @@ using System;
 
 public class CombatArtPlayer
 {
-    public void CombatArt(int moves)
+    public static void CombatArt(int moves)
     {
-        Console.SetCursorPosition((int)(Console.WindowWidth*0.2), (int)(Console.WindowHeight*0.7));
+        int currRow = (int)(Console.WindowHeight*0.4);
         if (moves == 1)
         {
-            Console.WriteLine(@"                                       
+            var rows = @"                                       
                          &&&&          
                 .&&&  &&,,,,,&         
              @%&@@@@@&@&&%,,*&         
@@ -21,12 +21,19 @@ public class CombatArtPlayer
           &%%%%%%%%%%%%%%%%%%%%%%%     
             &%&@@@@&&###%&@&%%         
               %%%%%%%%%%%              
-                  ####                 ");
-        }
+                  ####                 ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.5);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.1), currRow);
+            Console.Write(row);
+            currRow++;
+          }
+          }
 
         else if (moves == 2)
         {
-            Console.WriteLine(@"                                             
+            var rows = @"                                             
     %                          ,             
                               ,. ,*          
      #             (%*(**     ,  ., .        
@@ -48,12 +55,18 @@ public class CombatArtPlayer
                   . ..    ,                  
                   *, ,.                      
                   ...  *,                    
-                  ...                        ");
+                  ...                        ".Split("\n");
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.1), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
 
         else if (moves == 3)
         {
-            Console.WriteLine(@"                                       
+            var rows = @"                                       
             @@@@@@@@@@@@@@@@           
           @@@@@@@@@@@@@@@@@@@@         
          @@@@    @@@@@@    @@@@        
@@ -73,12 +86,18 @@ public class CombatArtPlayer
         @ @@      @& @   @@#    (      
         @ @@      @  @    @#    (      
                         .              
-      @@@@@@*@@         @@@@ @@@@@@@   ");
+      @@@@@@*@@         @@@@ @@@@@@@   ".Split("\n");
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.1), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
         
         else if (moves == 4)
         {
-            Console.WriteLine(@"            .       .,                       
+            var rows = @"            .       .,                       
             .,**  ////     **/**             
             (#(   (##&# .(//(///(,  /        
      ,,.*/(. .,**//***(#%/((#((//(//         
@@ -91,12 +110,19 @@ public class CombatArtPlayer
   ....,,*.....,,*////***((((((/              
     /**/...,,,*////*  ((((((/*               
         . ..,,//*     ((((((/*,              
-       ... *.,,./      /((**/*               ");
+       ... *.,,./      /((**/*               ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.5);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.1), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
 
         else
         {
-            Console.WriteLine(@"                /, * #      /          
+            var rows = @"                /, * #      /          
                 %,(,,*%     #          
                 %,/./..      ,         
        ,%####&%%/.*.*.*(     /         
@@ -111,7 +137,14 @@ public class CombatArtPlayer
     (#  #,%@@#%(@#/%#@&                
     %%%   (&*@#,##@@@@@#               
       &//, (.%#@   @@@@@               
-           @@@@@   @@@@@               ");
+           @@@@@   @@@@@               ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.45);
+           foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.1), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
     }
 }

@@ -42,7 +42,7 @@ public class Ui
         string[] Attacks4 = { "Claw", "Fire Breath", "Ravage", "Ground Pound" };
         string[] Attacks5 = { "Flute Slash", "Block", "Chord", "Sound Blast" };
         Array[] Attacks = { Attacks1, Attacks2, Attacks3, Attacks4, Attacks5 };
-        string[] AttackName = (string[])Attacks[Fighter.moves];
+        string[] AttackName = (string[])Attacks[Fighter.moves-1];
         Console.SetCursorPosition(1, (int)(Console.LargestWindowHeight*0.95));
         Console.Write($"{AttackName[0]}");
         Console.SetCursorPosition((int)(Console.WindowWidth * 0.25) + 1, (int)(Console.LargestWindowHeight*0.95));

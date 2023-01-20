@@ -2,7 +2,7 @@ using System;
 
 public class Fighter
 {
-    static List<string> characters = new() { "Jigglypuff", "Sephiroth", "Sans", "Bowser", "Tuba Knight" }; // static gör en lista som varje instans av fighter delar på
+    public static List<string> characters = new() { "Jigglypuff", "Sephiroth", "Sans", "Bowser", "Tuba Knight" }; // static gör en lista som varje instans av fighter delar på
     static List<int> Hp = new() { 250, 300, 200, 400, 250 };
     static List<int> Speed = new() { 5, 4, 9, 3, 6 };
     Random generator = new Random();
@@ -16,7 +16,7 @@ public class Fighter
     public int speed;
     public string confirmPlayer;
     public bool confirmAttack;
-    public int moves;
+    public static int moves;
     public static int page;
 
     // DOT damage variablar
@@ -134,7 +134,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             if (confirmPlayer == "y" || confirmPlayer == "yes")
             {
                 name = characters[page - 1];
-                moves = page-1;
+                moves = page;
                 SpeedHp();
                 AttackNameStats();
                 characters.Remove(name); //tar bort namnet som mathcar string name

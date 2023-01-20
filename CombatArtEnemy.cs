@@ -3,12 +3,13 @@ using System;
 
 public class CombatArtEnemy
 {
-     public void CombatArtE(int page)
+    public static void CombatArtE(int page)
     {
-         Console.SetCursorPosition((int)(Console.WindowWidth*0.8), (int)(Console.WindowHeight*0.7));
-        if (page == 1)
+        string name = Fighter.characters[page];
+        int currRow = (int)(Console.WindowHeight*0.3);  
+        if (name == "Jigglypuff")
         {
-            Console.WriteLine(@"                                       
+            var rows = @"                                       
            &&&&                        
           &,,,,,&&  &&&                
           &,,,%&&@&@@@@@&%@            
@@ -22,12 +23,19 @@ public class CombatArtEnemy
       %%%%%%%%%%%%%%%%%%%%%%%&         
           %%&@&%###&&@@@@&%&           
                %%%%%%%%%%%             
-                  ###%                 ");
+                  ###%       ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.5);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
 
-        else if (page == 2)
+        else if (name == "Sephiroth")
         {
-            Console.WriteLine(@"                                             
+            var rows = @"                                             
               ,                          #   
            *, .,                             
          . ,.  ,     ,*(*%#             %    
@@ -49,12 +57,18 @@ public class CombatArtEnemy
                    ,    .. .                 
                        ,, **                 
                      ,*   ..                 
-                         ...                 ");
+                         ...                 ".Split("\n");
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
 
-        else if (page == 3)
+        else if (name == "Sans")
         {
-            Console.WriteLine(@"                                       
+            var rows = @"                                       
             @@@@@@@@@@@@@@@@           
           @@@@@@@@@@@@@@@@@@@@         
          @@@@    @@@@@@    @@@@        
@@ -74,12 +88,18 @@ public class CombatArtEnemy
         @ @@      @& @   @@#    (      
         @ @@      @  @    @#    (      
                         .              
-      @@@@@@*@@         @@@@ @@@@@@@   ");
+      @@@@@@*@@         @@@@ @@@@@@@   ".Split("\n");
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
         
-        else if (page == 4)
+        else if (name == "Bowser")
         {
-            Console.WriteLine(@"                        /.       .           
+            var rows = @"                        /.       .           
               **/*      ////  **,,           
          ,  /(//((///. &##%/   ##/           
           (/(//((#(//%%(****/**.  ((*,.,.    
@@ -92,12 +112,19 @@ public class CombatArtEnemy
                /((((((***///**,,....,*,,..., 
                 */(((((/  *////*,,,.../**/   
                **/(#((((     ///,,.. .       
-                *///((*      /./.., ...      ");
+                *///((*      /./.., ...      ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.5);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
 
         else
         {
-            Console.WriteLine(@"           ,      ( / ,(               
+            var rows = @"           ,      ( / ,(               
            ,     %*.,(,%               
           *      ,./.*,%               
          ,      #*.*.*./%%%####%       
@@ -112,7 +139,14 @@ public class CombatArtEnemy
                  @@#&/#@/&%@@&*#  #(   
                 &@@@@@##,#@,%*   ##%   
                 @@@@@   @##.( **(%     
-                @@@@@   @@@@@          ");
+                @@@@@   @@@@@          ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.45);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
         }
     }
 }

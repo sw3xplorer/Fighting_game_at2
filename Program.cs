@@ -90,7 +90,8 @@ Console.Clear();
 
 Ui.MenuLine();
 Ui.AttackLabel();
-CombatArtPlayer.CombatArt(moves);
+CombatArtPlayer.CombatArt(Fighter.moves);
+CombatArtEnemy.CombatArtE(Fighter.page);
 while (enemy.hp > 0 && player.hp > 0) //enemy hp är 0????
 
 //sätt in en input metod för att välja attacker
