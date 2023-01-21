@@ -89,6 +89,7 @@ public class CombatArtEnemy
         @ @@      @  @    @#    (      
                         .              
       @@@@@@*@@         @@@@ @@@@@@@   ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.5);
           foreach (string row in rows)
           {
             Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
@@ -124,23 +125,32 @@ public class CombatArtEnemy
 
         else
         {
-            var rows = @"           ,      ( / ,(               
-           ,     %*.,(,%               
-          *      ,./.*,%               
-         ,      #*.*.*./%%%####%       
-         /       (*#&/*.*(####(*.      
-        /       ###(#/#.*.     .       
-       (/     .(##(*,../(* ,  @%       
-      ,*/,    /#/#/* .#*///.@&&(,      
-                (/(/(*%/@%%@@#/(@(     
-                .**,@.,&/,*%*(#&       
-               ,,//%%%,&%&&%  #*       
-                #%%,%%&#&@(,(,. /*,    
-                 @@#&/#@/&%@@&*#  #(   
-                &@@@@@##,#@,%*   ##%   
-                @@@@@   @##.( **(%     
-                @@@@@   @@@@@          ".Split("\n");
-          currRow = (int)(Console.WindowHeight*0.45);
+            var rows = @"                                        
+                                        
+             *                          
+            /.                          
+            ,      #, .                 
+           /      #**.**%               
+           (     (/.,,.*#               
+          ,      (,.,,.*%/**.,(#.       
+          *      (*,#/,,*#%%%%%#(*      
+         /        (/&#**//,,.**,,       
+        ..     *#%#(*.*.       ,        
+        (,     ##((**,..,(*/* @#%       
+       ,       ,((/***,//*%@@@((#(      
+                /#.%//**#.&%#////%      
+                 #(#,,, ,.., #,&        
+              ,#/#,&&%&@&&% (% @%,      
+                  %%(#%@(*  *#%/  #*    
+                 .@@@#(*#@(%( #    ##   
+                 @@@@@@ #((%&    /##    
+                @@@@@   %@@##(&#%       
+                 @@@@@   @@@@*          
+                  @@@@@  &&&&&          
+                   &@@@# %&&&&          
+                /(#(#((   &&@&&         
+                          &&&&&         ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.42);
           foreach (string row in rows)
           {
             Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);

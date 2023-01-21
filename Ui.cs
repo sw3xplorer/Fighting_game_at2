@@ -54,5 +54,15 @@ public class Ui
 
     }
 
+    public static void RestartLabel()
+    {
+        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55));
+        Console.Write("Play again?");
+        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55)+2);
+        Console.Write("Yes");
+        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth)+10, (int)(Console.LargestWindowHeight*0.55)+2);
+        Console.Write("No");
+    }
+
 
 }

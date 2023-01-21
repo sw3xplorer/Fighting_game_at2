@@ -41,6 +41,7 @@ public class Fighter
     // Stun status
 
     public bool stun = false;
+    public int stunTimesLeft;
 
 
     public List<Attack> attacks = new();
@@ -262,7 +263,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             }   
         }
     }
-    public void UpdateDot() // funkar rätt men dotDamage och dotTimesLeft är 0
+    public void UpdateDot() 
     {
        if (doDot)
        {
@@ -273,6 +274,10 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
                 doDot = false;
                 
             }
+       }
+       if (stun)
+       {
+            
        }
     }
     
