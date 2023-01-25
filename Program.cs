@@ -14,7 +14,7 @@ Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
 // Console.WriteLine(Console.LargestWindowWidth);
 
 Console.WriteLine("Some main and quality of life are missing but the game is working as designed");
-Task.Delay(2000).Wait();
+Task.Delay(1500).Wait();
 
 Console.WriteLine("USE FULLSCREEN FOR BEST EXPERIENCE! OTHERWISE STUFF WILL BREAK");
 Console.WriteLine("NOTE: All characters belong to their respective copyright owners.");

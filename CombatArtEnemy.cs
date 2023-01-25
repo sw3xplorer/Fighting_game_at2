@@ -58,6 +58,7 @@ public class CombatArtEnemy
                        ,, **                 
                      ,*   ..                 
                          ...                 ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.3);
           foreach (string row in rows)
           {
             Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
@@ -89,7 +90,7 @@ public class CombatArtEnemy
         @ @@      @  @    @#    (      
                         .              
       @@@@@@*@@         @@@@ @@@@@@@   ".Split("\n");
-          currRow = (int)(Console.WindowHeight*0.5);
+          currRow = (int)(Console.WindowHeight*0.35);
           foreach (string row in rows)
           {
             Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
@@ -150,7 +151,7 @@ public class CombatArtEnemy
                    &@@@# %&&&&          
                 /(#(#((   &&@&&         
                           &&&&&         ".Split("\n");
-          currRow = (int)(Console.WindowHeight*0.42);
+          currRow = (int)(Console.WindowHeight*0.3);
           foreach (string row in rows)
           {
             Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);

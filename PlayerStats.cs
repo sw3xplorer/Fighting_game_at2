@@ -99,7 +99,7 @@ public class PlayerStats
             Console.WriteLine("\nSlam: 25 DMG");
             Console.WriteLine("\nDecay: Apply decay for 5 turns, dealing 20 DMG per turn");
             Console.WriteLine("\nBone Barrage: 15-70 DMG");
-            Console.WriteLine("\nMega Blast: 80 DMG");
+            Console.WriteLine("\nMega Blast: 100 DMG");
             Task.Delay(1000).Wait();
         }
 
