@@ -3,10 +3,15 @@ using System;
 public class Fighter
 {
     public static List<string> characters = new() { "Jigglypuff", "Sephiroth", "Sans", "Bowser", "Tuba Knight" }; // static gör en lista som varje instans av fighter delar på
-    static List<int> Hp = new() { 250, 300, 200, 400, 250 };
+    public static List<string> bossesPrompt = new() { "5%", "Chocobo", "Motivated", "Rip and Tear", "Get in the robot Shinji" };
+    static List<int> Hp = new() { 250, 350, 200, 400, 250 };
+    static List<int> HpBoss = new() { 850, 750, 600, 900, 1250 };
     static List<int> Speed = new() { 5, 4, 9, 3, 6 };
+    static List<int> SpeedBoss = new() { 7, 10, 15, 12, 1 };
     Random generator = new Random();
 
+    public string bossPrompt = "";
+    public bool bossFight = false;
     public string characterInfo;
     public string name;
     public int opponent;
@@ -208,7 +213,7 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new Special() { name = "Ground Pound", effect = 125, stunDuration = 2 }); //och stun för 2 turns
             //läggs till om attacken träffar
         }
-        else
+        else if (name == "Tuba Knight")
         {
             attacks.Clear();
             attacks.Add(new Attack() { name = "Flute Slash", effect = 30 });
@@ -216,7 +221,46 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
             attacks.Add(new CritUp() { name = "Chord", effect = 2 });
             attacks.Add(new Special() { name = "Sound Blast", effect = 100 });
         }
-
+        else if (name == "Tagilla")
+        {
+            attacks.Clear();
+            attacks.Add(new Attack() { name = "Dead Blow hammer", effect = 70 });
+            attacks.Add(new Attack() { name = "Saiga 12ga V10", effect = 80 });
+            attacks.Add(new Multihit() { name = "AKS 74U Zenit", effect = 30, amount = 3 });
+            attacks.Add(new Multihit() { name = "RPK 16 LMG", effect = 10, amount = 15 });
+        }
+        else if (name == "Cloud")
+        {
+            attacks.Clear();
+            attacks.Add(new Attack() { name = "Slash", effect = 30 });
+            attacks.Add(new Heal() { name = "Cura", effect = 150 });
+            attacks.Add(new Multihit() { name = "Cross Slash", effect = 30, amount = 3 });
+            attacks.Add(new Multihit() { name = "Omnislash", effect = 15, amount = 16 });
+        }
+        else if (name == "Vergil")
+        {
+            attacks.Clear();
+            attacks.Add(new Attack() { name = "Void Slash", effect = 40 });
+            attacks.Add(new DotAttack() { name = "Mirage blades", effect = 30, amount = 5 });
+            attacks.Add(new Multihit() { name = "Judgment Cut", effect = 40, amount = 3 });
+            attacks.Add(new Special() { name = "Judgment Cut End", effect = 500 });
+        }
+        else if (name == "Doom Guy")
+        {
+            attacks.Clear();
+            attacks.Add(new Attack() { name = "Punch", effect = 50 });
+            attacks.Add(new DotAttack() { name = "Flamethrower", effect = 20, amount = 5 });
+            attacks.Add(new Multihit() { name = "Machine gun", effect = 15, amount = 10 });
+            attacks.Add(new Special() { name = "BFG-9000", effect = 300});
+        }
+        else if (name == "Eva-01")
+        {
+            attacks.Clear();
+            attacks.Add(new Attack() { name = "Stomp", effect = 40 });
+            attacks.Add(new Multihit() { name = "Knife", effect = 60, amount = 2 });
+            attacks.Add(new Multihit() { name = "Rifle", effect = 35, amount = 5 });
+            attacks.Add(new Special() { name = "Spear of Longinus", effect = 200 });
+        }
     }
 
 
@@ -281,10 +325,83 @@ _  /   / /_/ // /_ / /_/ /  /   _  / / /_/ /_  /
        }
     }
     
-    public Fighter()
+    public void Bossname()
     {
-
+        if (bossPrompt == "5%")
+        {
+            name = "Tagilla";
+            maxHp = HpBoss[0];
+            hp = maxHp;
+            speed = SpeedBoss[0];
+            AttackNameStats();
+            Console.WriteLine("The factory is too quiet...");
+            Task.Delay(2000).Wait();
+        } 
+        else if (bossPrompt == "Chocobo")
+        {
+            name = "Cloud";
+            maxHp = HpBoss[1];
+            hp = maxHp;
+            speed = SpeedBoss[1];
+            AttackNameStats();
+            Console.WriteLine("A SOLDIER draws near");
+            Task.Delay(2000).Wait();
+        }
+        else if (bossPrompt == "Motivated")
+        {
+            name = "Vergil";
+            maxHp = HpBoss[2];
+            hp = maxHp;
+            speed = SpeedBoss[2];
+            AttackNameStats();
+            Console.WriteLine("A storm is approaching");
+            Task.Delay(2000).Wait();
+        }
+        else if (bossPrompt == "Rip and Tear")
+        {
+            name = "Doom Guy";
+            maxHp = HpBoss[3];
+            hp = maxHp;
+            speed = SpeedBoss[3];
+            AttackNameStats();
+            Console.WriteLine("...untill it is done");
+            Task.Delay(2000).Wait();
+        }
+        else
+        {
+            name = "Eva-01";
+            maxHp = HpBoss[4];
+            hp = maxHp;
+            speed = SpeedBoss[4];
+            AttackNameStats();
+            Console.WriteLine("The ground is shaking");
+            Task.Delay(2000).Wait();
+        }
     }
     
+    public void BossPromptCheck(string text, List<string> list)
+    {
+        foreach(string prompt in list)
+        {
+            if (text == prompt)
+            {
+                bossFight = true;
 
+            }
+        }
+    }
+
+    public void CombatArtP()
+    {
+        CombatArtPlayer.CombatArt(name);
+    }
+    public void CombatArtE()
+    {
+        CombatArtEnemy.CombatArtE(name);
+    }
+    
+    public void BossPrompt()
+    {
+        bossPrompt = Console.ReadLine();
+    }
 }

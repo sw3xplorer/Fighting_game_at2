@@ -29,7 +29,23 @@ public class Multihit : Attack
                         target.hp -= 0;
                     }
                 }
+                else if (name == "Cloud")
+                {
+                    attackRoll = generator.Next(100);
 
+                    if ((attackRoll+1) >=95)
+                    {
+                        target.hp -= effect*2;
+                    }
+                    else if ((attackRoll+1 > 50))
+                    {
+                        target.hp -= effect;
+                    }
+                    else
+                    {
+                        target.hp -= 0;
+                    }
+                }
 
                 else 
                 {

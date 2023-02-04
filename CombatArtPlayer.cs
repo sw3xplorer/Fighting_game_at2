@@ -2,10 +2,10 @@ using System;
 
 public class CombatArtPlayer
 {
-    public static void CombatArt(int moves)
+    public static void CombatArt(string name)
     {
         int currRow = (int)(Console.WindowHeight*0.4);
-        if (moves == 1)
+        if (name == "Jigglypuff")
         {
             var rows = @"                                       
                          &&&&          
@@ -31,7 +31,7 @@ public class CombatArtPlayer
           }
           }
 
-        else if (moves == 2)
+        else if (name == "Sephiroth")
         {
             var rows = @"                                             
     %                          ,             
@@ -65,7 +65,7 @@ public class CombatArtPlayer
           }
         }
 
-        else if (moves == 3)
+        else if (name == "Sans")
         {
             var rows = @"                                       
             @@@@@@@@@@@@@@@@           
@@ -97,7 +97,7 @@ public class CombatArtPlayer
           }
         }
         
-        else if (moves == 4)
+        else if (name == "Bowser")
         {
             var rows = @"            .       .,                       
             .,**  ////     **/**             

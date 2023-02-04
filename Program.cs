@@ -3,6 +3,8 @@ string tutorial = "";
 Fighter player = new Fighter();
 Fighter enemy = new Fighter();
 int enemyAttack; 
+
+
 Random generator = new Random();
 // int choice = 0;
 // bool confirmRestart = false;
@@ -19,7 +21,8 @@ Task.Delay(1500).Wait();
 Console.WriteLine("USE FULLSCREEN FOR BEST EXPERIENCE! OTHERWISE STUFF WILL BREAK");
 Console.WriteLine("NOTE: All characters belong to their respective copyright owners.");
 Console.Write("Press enter to start: ");
-Console.ReadLine();
+enemy.BossPrompt();
+enemy.BossPromptCheck(enemy.bossPrompt, Fighter.bossesPrompt);
 Console.Clear();
 
 Console.WriteLine(@"_____________            _______                           
@@ -73,10 +76,20 @@ Console.Clear();
 // men variablarna krockar inte med dem från player.
 
 // samma tanke som med spelaren fast för fienden
-enemy.Challangername();
 
-Task.Delay(750).Wait();
-Console.WriteLine("Battle starts in:");
+if (enemy.bossFight == false)
+{
+      enemy.Challangername();
+
+      Task.Delay(750).Wait();
+      Console.WriteLine("Battle starts in:");
+      
+}
+else 
+{
+      enemy.Bossname();
+
+}
 Task.Delay(1500).Wait();
 Console.WriteLine(@"________
 __|__  /
@@ -105,8 +118,8 @@ Console.Clear();
 // ha en loop som körs så länge båda spelarna lever och sedan bryter ut när en av de dör
 Ui.MenuLine();
 Ui.AttackLabel();
-CombatArtPlayer.CombatArt(Fighter.moves);
-CombatArtEnemy.CombatArtE(Fighter.page);
+player.CombatArtP();
+enemy.CombatArtE();
 while (enemy.hp > 0 && player.hp > 0) 
 
 
@@ -227,4 +240,12 @@ else
       // }
 
 
+
+// Boss fight prompts
+
+// Tagilla = 5%
+// Cloud = Chocobo
+// Vergil = Motivated
+// Doom Guy = Rip and Tear
+// Eva-01 = Get in the robot Shinji
 

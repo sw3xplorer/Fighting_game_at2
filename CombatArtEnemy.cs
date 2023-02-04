@@ -3,9 +3,8 @@ using System;
 
 public class CombatArtEnemy
 {
-    public static void CombatArtE(int page)
+    public static void CombatArtE(string name)
     {
-        string name = Fighter.characters[page];
         int currRow = (int)(Console.WindowHeight*0.3);  
         if (name == "Jigglypuff")
         {
@@ -124,7 +123,7 @@ public class CombatArtEnemy
           }
         }
 
-        else
+        else if (name == "Tuba Knight")
         {
             var rows = @"                                        
                                         
@@ -159,5 +158,172 @@ public class CombatArtEnemy
             currRow++;
           }
         }
+        else if (name == "Tagilla")
+        {
+          var rows = @"                                             
+                 ,%%(                        
+               ..  ,**&                      
+               *///*#(#*                     
+               **##%%%&*                     
+               /(%,//%*(% *                  
+           .   .* *.  ,(          %&&&%%%    
+          ,     ,,./*,*% (          *(%&&%(  
+          ( *  (/(/*(/%#*%(.(/.  #/&,        
+          *   .*(((((&#(,  .,../*(/*         
+                  //((((    *..              
+            *%%&/,*#**(((*(*                 
+         #&&%##(#%%%%#/ /,&                  
+        %&%#(#%&&&&&%.&&##((                 
+         %&&#&&  %/*   &&%(/(,               
+       /##%#&&&#,       %&&%#**              
+      .%(#%%&@,          %&&%*/              
+       &#%&&#            #%%(#/              
+        &#&&,             *%##               
+        .&&&               &%&               
+         #%%                  ,              
+     ,/##/                                   
+                                             ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.35);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
+        }
+        else if (name == "Cloud")
+        {
+          var rows = @"                                             
+  @/                              %          
+   @(((%                     &&@&%&          
+    @&*///((               %&&@#&&%          
+     @@&**,*/(##             #@&%  %         
+      &@&,,,,****/(    /../(,/..*,           
+       &&%%...,.,,,**/( .%&(./**/*#&         
+        @@@&&%%..,,.*,,,,*&&% ...#&@         
+             @@&&&%...........#,,/%          
+                 &%%%##,...... *,,%          
+                      ###((/ ./ ,/.          
+                        */#(/..** .,*/       
+                       (,/,,,/..... ,***     
+                     /***,..      ,....*/(   
+                 (/**,.,..           ....,*  
+                 ,. .,,             .,,. ,   
+                %#/...,             *,,..    
+               ,.& *                *..*/    
+             **/,                     (/,,,. 
+             /***,                           ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.35);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
+        }
+        else if (name == "Vergil")
+        {
+          var rows = @"                            /*(        
+                    .. ...,,.%%,       
+             ,,.. , /  ..*.* #(%       
+         , .     .  .  .%&#  ,(@       
+        ,   .    #/,,,/#%&@  &&        
+        /  ...   %#**((#%&#  @@        
+        (         *,*.%#%(  ,**/#      
+        .      .    ..*(  * .,,*/#(*   
+         /    ..  .       .,  .    * ,*
+              ./. .. .,.      ,    .  ,
+          .   ..  . .,,      ,*        
+          ,.  ,  ....,**  . .,*        
+          ., .   .. ..,..  ..*..       
+           , ,    . ,,,,.  ,*(**       
+           ,      . ,.,,  . ,(**       
+          ,          .,,  ..*(/        
+           .        ..,... .//(        
+        **              .  ,/,/        
+        .        .... .... ,(,,.       
+      ..       ..    . ... ,/#..       
+     (       ..    .. ..   **.,(       
+    ..            ... .   ,/, ,/       
+    , .            .,     ,/. /,       ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.3);
+          foreach (string row in rows)
+          {
+            Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+            Console.Write(row);
+            currRow++;
+          }
+        }
+      else if (name == "Doom Guy")
+      {
+        var rows = @"                                                  
+                       %,  .%                     
+                     @%,.   .,/                   
+                     (,./.  ...*    (             
+              *#/ //  */***/..     /. /           
+            ,(,% .    .,%. .  . . *    .          
+           #(#%%.*.  (* ...,      .  ,,,,         
+           &%**/((, #****,./,.     ....*          
+            /..  .(/,,,.        .     #           
+          (*,,     .....     , *,*/   **          
+          *%#*,.   &,/.   * .. ,.*. *, *          
+           &&#(.,*##*/.*% .   .#,%,  *&           
+             */,(,,,  .*(/&(.* # ,. .(            
+                ,.   .   *#    ,&,.(              
+                 (,.   .        &    ,%.#%        
+                 *.,         .  ..#  /,   , . *   
+                 ,,    .         ./               
+                 ,. .             .               
+                 ,.                               
+                 ...       .     .                ".Split("\n");
+              currRow = (int)(Console.WindowHeight*0.35);
+              foreach (string row in rows)
+              {
+                Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+                Console.Write(row);
+                currRow++;
+              }
+              
+      }
+
+      else 
+      {
+        var rows = @"                                                  
+                                  *#(( ,          
+                (##(              /((  *          
+                (##    ,           (#  .          
+                ##     .           #,   #         
+                (**                (    *         
+ .*/         (///*.. ***,          ,              
+     .***   ,*.*/*,,/*,,/*/, /**/,.     ,*        
+          */,//./,.*** ,, .//*#(*    *,  ,        
+        #(#/. *,**. (.  /**,..*((   /(   /        
+        ,###**././///.(#(#.    ###. ,//  ,        
+         ./// /,#*/. / #**/,,,. ##  .,/,,         
+          *//  ,#.,*,.*/.,,,,,.*(#  *//*,         
+              /  , ,.,,,,///,*.,.   **/(/.        
+               ././*/,      ..,,.,, *,(#(.        
+                (#///, /   */,,.  /#*#((/ .       
+                /#      *(*., (/*//,  (           
+                ,.   ,  (*,,,#(//.,  #,,  .,,     
+               ,  ,*,.  *%#(//  , ,.  ,  #/,.     
+              ,  (#,.   *.*/,**,,,,.,  .#(,,#     
+             .  ((    * /*..*//,   *., ###,.      
+                (    */ ./(***, ***,   (#..       
+             , .    **/  #*/.   //,.. ##./        
+           ,./,    #*//..*,,  ////*  ,#.(         
+           */*/   **////,,,, #///*. .#.*          
+          ***,*  **////,,/,,,,..*/*/,.,           
+          ,.,*, #/////,,,,*  ,*//*/..,,           
+          *... /*,*//,,,.   /,**...*.,,           
+            .*(*****,,,.     (*..,,.,,,           ".Split("\n");
+          currRow = (int)(Console.WindowHeight*0.2);
+              foreach (string row in rows)
+              {
+                Console.SetCursorPosition((int)(Console.WindowWidth*0.7), currRow);
+                Console.Write(row);
+                currRow++;
+              }
+      }
     }
 }

@@ -54,15 +54,26 @@ public class Ui
 
     }
 
-    public static void RestartLabel()
+    // public static void RestartLabel()
+    // {
+    //     Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55));
+    //     Console.Write("Play again?");
+    //     Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55)+2);
+    //     Console.Write("Yes");
+    //     Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth)+10, (int)(Console.LargestWindowHeight*0.55)+2);
+    //     Console.Write("No");
+    // }
+
+    public static void AttackInfo()
     {
-        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55));
-        Console.Write("Play again?");
-        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth), (int)(Console.LargestWindowHeight*0.55)+2);
-        Console.Write("Yes");
-        Console.SetCursorPosition((int)(0.45*Console.LargestWindowWidth)+10, (int)(Console.LargestWindowHeight*0.55)+2);
-        Console.Write("No");
+        
     }
 
-
+    public static void ClearLine()
+    {
+        int currentLineCursor = (int)(Console.WindowHeight*0.98);
+        Console.SetCursorPosition(0, Console.CursorTop);
+        Console.Write(new string(' ', Console.WindowWidth)); 
+        Console.SetCursorPosition(0, currentLineCursor);
+    }
 }
